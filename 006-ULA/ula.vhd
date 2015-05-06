@@ -2,10 +2,10 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity ULA is
-    Port ( A : in  STD_LOGIC_VECTOR (7 downto 0);
-           B : in  STD_LOGIC_VECTOR (7 downto 0);
-           S : in  STD_LOGIC_VECTOR (1 downto 0);
-           O : out  STD_LOGIC_VECTOR (7 downto 0));
+    Port (A : in  STD_LOGIC_VECTOR (7 downto 0);
+          B : in  STD_LOGIC_VECTOR (7 downto 0);
+          S : in  STD_LOGIC_VECTOR (1 downto 0);
+          O : out  STD_LOGIC_VECTOR (7 downto 0));
 end ULA;
 
 architecture Behavioral of ULA is
@@ -30,12 +30,7 @@ begin
 		port map (A, B, sub_link);
 						
 	MUX_P : entity work.MUX_PROCESS
-		port map (A => and_link,
-					 B => or_link,
-					 C => add_link,
-					 D => sub_link,
-					 S => S,
-					 O	=> O);
+		port map (and_link, or_link, add_link, sub_link, S, O);
 
 end Behavioral;
 
