@@ -14,14 +14,14 @@ architecture Behavioral of MUX_PROCESS is
 
 begin
 	process (A, B, C, D, S)
-	BEGIN
-		CASE S IS
-			WHEN "00" => O <= A;
-			WHEN "01" => O <= B;
-			WHEN "10" => O <= C;
-			WHEN "11" => O <= D;
-			WHEN OTHERS => O <= "00000000";
-		END CASE;
+	begin
+		case S is
+			when "00" => O <= A;
+			when "01" => O <= B;
+			when "10" => O <= C;
+			when "11" => O <= D;
+			when others=> O <= "00000000";
+		end case;
 	end process;
 end Behavioral;
 
