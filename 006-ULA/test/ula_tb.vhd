@@ -27,12 +27,52 @@ begin
 	adding : process
 	begin
 		S <= "00";
+		-- 0 && 0 = 0
+		A <= conv_std_logic_vector(0, 8);
+		B <= conv_std_logic_vector(0, 8);
+		wait for 10 ns;
 		
+		-- 0 && 1 = 0
+		A <= conv_std_logic_vector(0, 8);
+		B <= conv_std_logic_vector(1, 8);
+		wait for 10 ns;
+		
+		-- 0 && 1 = 0
+		A <= conv_std_logic_vector(0, 8);
+		B <= conv_std_logic_vector(1, 8);
+		wait for 10 ns;
+		
+		-- 1 && 1 = 1
+		A <= conv_std_logic_vector(1, 8);
+		B <= conv_std_logic_vector(1, 8);
+		wait for 10 ns;
+		
+		S <= "01";
+		-- 0 || 0 = 0
+		A <= conv_std_logic_vector(0, 8);
+		B <= conv_std_logic_vector(0, 8);
+		wait for 10 ns;
+		
+		-- 1 || 0 = 1
+		A <= conv_std_logic_vector(1, 8);
+		B <= conv_std_logic_vector(0, 8);
+		wait for 10 ns;
+		
+		-- 0 || 1 = 1
+		A <= conv_std_logic_vector(0, 8);
+		B <= conv_std_logic_vector(1, 8);
+		wait for 10 ns;
+		
+		-- 1 || 1 = 1
+		A <= conv_std_logic_vector(1, 8);
+		B <= conv_std_logic_vector(1, 8);
+		wait for 10 ns;
+		
+		
+		S <= "10";
 		-- 10 + 20 = 30
 		A <= conv_std_logic_vector(10, 8);
 		B <= conv_std_logic_vector(20, 8);
-		
-		assert(O = conv_std_logic_vector(30, 8));
 		wait for 10 ns;
 		
 		-- 32 + 13 = 45
@@ -40,7 +80,7 @@ begin
 		B <= conv_std_logic_vector(13, 8);
 		wait for 10 ns;
 		
-		S <= "01";
+		S <= "11";
 		-- 30 - 20 = 10
 		A <= conv_std_logic_vector(30, 8);
 		B <= conv_std_logic_vector(20, 8);
