@@ -11,14 +11,14 @@ architecture behavior of ULA_tb is
    component ULA
    port(A : in std_logic_vector(7 downto 0);
         B : in std_logic_vector(7 downto 0);
-		  S : in std_logic_vector(1 downto 0);
+ 	S : in std_logic_vector(1 downto 0);
         O : out std_logic_vector(7 downto 0));
    end component;
     
    signal A : std_logic_vector(7 downto 0) := (others => '0');
    signal B : std_logic_vector(7 downto 0) := (others => '0');
    signal S : std_logic_vector(1 downto 0) := (others => '0');
- 	signal O : std_logic_vector(7 downto 0);
+   signal O : std_logic_vector(7 downto 0);
    
 begin
  
