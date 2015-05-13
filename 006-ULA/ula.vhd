@@ -30,7 +30,7 @@ begin
 		port map (A, B, sub_link);
 						
 	MUX_P : entity work.MUX_PROCESS
-		port map (add_link, or_link, add_link, sub_link, S, O);
+		port map (and_link, or_link, add_link, sub_link, S, O);
 
 end Behavioral;
 
