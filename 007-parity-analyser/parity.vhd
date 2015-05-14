@@ -10,8 +10,9 @@ end PARITY_ANALYSER;
 
 architecture Behavioral of PARITY_ANALYSER is
 	signal C : std_logic_vector (N downto 0);
+	
 begin
-	C(0) <= A(0);
+	C(0) <= '0';
 	loop_for: for i in 0 to N - 1 generate 
 		parity : entity work.PARITY_PROCESS
 			port map (C(i), A(i), C(i+1));
