@@ -24,7 +24,7 @@ begin
    begin		
 		
 		test:
-		for i in 0 to 3 loop
+		for i in 0 to 15 loop
 			A <= conv_std_logic_vector(i, 4);
 			wait for 10 ns;
 		end loop test;
