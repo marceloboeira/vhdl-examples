@@ -11,6 +11,6 @@ end OR_PROCESS;
 architecture Behavioral of OR_PROCESS is
 
 begin
-	O <= A or B;
+  O <= A or B;
 end Behavioral;
 

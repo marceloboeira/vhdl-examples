@@ -19,7 +19,7 @@ ARCHITECTURE behavior OF TB_btn_led IS
    signal btn : std_logic := '0';
    signal reset : std_logic := '1';
 
- 	--Outputs
+  --Outputs
    signal ledA : std_logic_vector(7 downto 0);
    constant btn_period : time := 1 ms;
  
@@ -32,15 +32,15 @@ BEGIN
 
    btn_process :process
    begin
-		btn <= '0';
-		wait for btn_period/2;
-		btn <= '1';
-		wait for btn_period/2;
+    btn <= '0';
+    wait for btn_period/2;
+    btn <= '1';
+    wait for btn_period/2;
    end process;
  
    stim_proc: process
-   begin		
-      wait for 100 ns;	
+   begin    
+      wait for 100 ns;  
       reset <= '0';
       -- insert stimulus here 
       wait;

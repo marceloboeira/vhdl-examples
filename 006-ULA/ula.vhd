@@ -10,27 +10,27 @@ end ULA;
 
 architecture Behavioral of ULA is
 
-	signal and_link : STD_LOGIC_VECTOR (7 downto 0);
-	signal or_link : STD_LOGIC_VECTOR (7 downto 0);
-	signal add_link : STD_LOGIC_VECTOR (7 downto 0);
-	signal sub_link : STD_LOGIC_VECTOR (7 downto 0);
+  signal and_link : STD_LOGIC_VECTOR (7 downto 0);
+  signal or_link : STD_LOGIC_VECTOR (7 downto 0);
+  signal add_link : STD_LOGIC_VECTOR (7 downto 0);
+  signal sub_link : STD_LOGIC_VECTOR (7 downto 0);
 
 begin
 
-	AND_P : entity work.AND_PROCESS
-		port map (A, B, and_link);
+  AND_P : entity work.AND_PROCESS
+    port map (A, B, and_link);
 
-	OR_P : entity work.OR_PROCESS
-		port map (A, B, or_link);
+  OR_P : entity work.OR_PROCESS
+    port map (A, B, or_link);
 
-	ADDER_P : entity work.ADDER_PROCESS
-		port map (A, B, add_link);
+  ADDER_P : entity work.ADDER_PROCESS
+    port map (A, B, add_link);
 
-	SUBTRACTER_P : entity work.SUBTRACTER_PROCESS
-		port map (A, B, sub_link);
-						
-	MUX_P : entity work.MUX_PROCESS
-		port map (and_link, or_link, add_link, sub_link, S, O);
+  SUBTRACTER_P : entity work.SUBTRACTER_PROCESS
+    port map (A, B, sub_link);
+            
+  MUX_P : entity work.MUX_PROCESS
+    port map (and_link, or_link, add_link, sub_link, S, O);
 
 end Behavioral;
 

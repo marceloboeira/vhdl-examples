@@ -13,7 +13,7 @@ end 1bit_adder_subtractor;
 architecture Behavioral of 1bit_adder_subtractor is
 
 begin
-	s <= (a xor b) xor cin;
-	cout <= (cin and b) or ((cin or b) and (a xor mode)); 
-	
+  s <= (a xor b) xor cin;
+  cout <= (cin and b) or ((cin or b) and (a xor mode)); 
+  
 end Behavioral;
