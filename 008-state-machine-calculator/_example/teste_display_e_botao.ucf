@@ -1,0 +1,22 @@
+# UCF Placa Digilent Basys 2
+NET "clock" CLOCK_DEDICATED_ROUTE = TRUE;
+NET "clock" LOC = B8;
+NET "disp_sel_o[3]" LOC = K14;
+NET "disp_sel_o[2]" LOC = M13;
+NET "disp_sel_o[1]" LOC = J12;
+NET "disp_sel_o[0]" LOC = F12;
+
+NET "botao" CLOCK_DEDICATED_ROUTE = FALSE;
+NET "botao" LOC = G12;  # 5 CENTS
+NET "reset" LOC = A7;
+NET "led" LOC = M5;
+
+NET "saida_8segmentos[7]" LOC = L14;
+NET "saida_8segmentos[6]" LOC = H12;
+NET "saida_8segmentos[5]" LOC = N14;
+NET "saida_8segmentos[4]" LOC = N11;
+NET "saida_8segmentos[3]" LOC = P12;
+NET "saida_8segmentos[2]" LOC = L13;
+NET "saida_8segmentos[1]" LOC = M12;
+NET "saida_8segmentos[0]" LOC = N13;
+
