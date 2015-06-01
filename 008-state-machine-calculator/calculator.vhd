@@ -4,7 +4,7 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_arith.all;
 
 entity Calculator is
-    Port (clock : in STD_LOGIC;
+    port (clock : in STD_LOGIC;
           btn_reset : in STD_LOGIC;
           btn_inc : in STD_LOGIC;
           btn_dec : in STD_LOGIC;        
