@@ -31,7 +31,7 @@ begin
   process (clock, reset)
   begin
     if reset = '1' then
-      output8 <= "11111111"; -- apaga tudo
+      output8 <= "11111111";
     elsif clock'event and clock = '1' then
       case entrada is
         when "0000" => output8 <= base(0);
