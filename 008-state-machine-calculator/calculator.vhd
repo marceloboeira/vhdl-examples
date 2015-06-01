@@ -8,9 +8,9 @@ entity Calculator is
           btn_reset : in STD_LOGIC;
           btn_inc : in STD_LOGIC;
           btn_dec : in STD_LOGIC;        
-          switch_done : in STD_LOGIC;
           switch_input : in STD_LOGIC;
           switch_operation : in STD_LOGIC;
+          switch_done : in STD_LOGIC;
           display_out : out STD_LOGIC_VECTOR (15 downto 0));
         
 end Calculator;
