@@ -24,7 +24,7 @@ architecture Behavioral of Calculator is
                  CALCULATE, 
                  SHOW_RESULTS);
   signal current_state : STATE;
-  signal input_a, input_b, result: INTEGER range 0 to 255;
+  signal input_a, input_b : INTEGER range 0 to 255;
   signal result : STD_LOGIC_VECTOR (7 downto 0); 
   signal operation : INTEGER range 0 to 9;
 
@@ -102,9 +102,9 @@ begin
           when 8 =>
             result <= not conv_std_logic_vector(input_a, 8);
           when 9 =>
-            result <= 0;
+            result <= conv_std_logic_vector(0, 8);
           when others =>
-              result <= 0;
+            result <= conv_std_logic_vector(0, 8);
         end case;  
         current_state <= BOOT;
 

@@ -7,10 +7,10 @@ use ieee.numeric_std.all;
 entity SevenSegmentDisplayMux is
     Port (entrada: in  STD_LOGIC_VECTOR (15 downto 0);
           clock: in STD_LOGIC;
-          clk_1k: out STD_LOGIC;
           reset: in STD_LOGIC;
-          saida_8segmentos: out  STD_LOGIC_VECTOR (7 downto 0);
-          disp_sel_o: out  STD_LOGIC_VECTOR (3 downto 0));
+          output_h: out  STD_LOGIC_VECTOR (7 downto 0);
+          current_display: out  STD_LOGIC_VECTOR (3 downto 0);
+          clk_1k: out STD_LOGIC);
 end SevenSegmentDisplayMux;
 
 architecture Behavioral of SevenSegmentDisplayMux is
@@ -53,7 +53,7 @@ begin
   end if;
 end process;
 
-disp_sel_o <= disp_sel;
+current_display <= disp_sel;
 
 laco_for : for i in 0 to 3 generate 
   display1 : entity work.SevenSegmentDisplayDriver
@@ -62,7 +62,7 @@ laco_for : for i in 0 to 3 generate
             reset,
             display(i));
   
-  saida_8segmentos <= display(cont REM 4);
+  output_h <= display(cont REM 4);
 end generate;
 
 clk_1k <= clk_1k_sgn;

@@ -44,7 +44,7 @@ display_linker : entity work.DisplayDriver
             btn_display_mode,
             output_display,
             current_display,
-            display);
+            display_output);
 
 end Behavioral;
 
