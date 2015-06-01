@@ -8,9 +8,9 @@ entity Calculator is
           btn_reset : in STD_LOGIC;
           btn_inc : in STD_LOGIC;
           btn_dec : in STD_LOGIC;        
-          switch_a : in STD_LOGIC;
-          switch_b : in STD_LOGIC;
-          switch_c : in STD_LOGIC;
+          switch_done : in STD_LOGIC;
+          switch_input : in STD_LOGIC;
+          switch_operation : in STD_LOGIC;
           display_out : out STD_LOGIC_VECTOR (15 downto 0));
         
 end Calculator;
@@ -19,8 +19,8 @@ architecture Behavioral of Calculator is
   type STATE is (BOOT, 
                  POLLING, 
                  INPUT_DATA, 
-                 INPUT_DATA_RET_BTN_INC,
-                 INPUT_DATA_RET_BTN_DEC,
+                 RELEASE_BTN_INC,
+                 RELEASE_BTN_DEC,
                  CALCULATE, 
                  SHOW_RESULTS);
   signal current_state : STATE;
@@ -42,24 +42,23 @@ begin
         input_a <= 0;
         input_b <= 0;
         operation <= 0;
-
         current_state <= POLLING;  
-      
+        
       when POLLING => 
-        if switch_a = '1' then
-          current_state <= INPUT_OPERATION;
+        if switch_done = '1' then
+          current_state <= CALCULATE;
         elsif btn_inc = '1' then
-          current_state <= INPUT_DATA_RET_BTN_INC;
+          current_state <= RELEASE_BTN_INC;
         elsif btn_dec = '1' then
-          current_state <= INPUT_DATA_RET_BTN_DEC;
+          current_state <= RELEASE_BTN_DEC;
         else
           current_state <= POLLING;
         end if;
 
-      when INPUT_DATA_RET_BTN_INC =>
+      when RELEASE_BTN_INC =>
         if btn_inc = '0' then
-          if switch_b = '0' then
-            if switch_c = '1' then
+          if switch_operation = '0' then
+            if switch_input = '0' then
               input_a <= input_a + 1;
             else
               input_b <= input_b + 1;
@@ -70,10 +69,10 @@ begin
           current_state <= POLLING;
         end if;
 
-      when INPUT_DATA_RET_BTN_DEC =>
+      when RELEASE_BTN_DEC =>
         if btn_dec = '0' then
-          if switch_b = '0' then
-            if switch_c = '1' then
+          if switch_operation = '0' then
+            if switch_input = '0' then
               input_a <= input_a - 1;
             else
               input_b <= input_b - 1;
@@ -107,7 +106,7 @@ begin
           when others =>
               result <= 0;
         end case;  
-        current_state <= boot;
+        current_state <= BOOT;
 
       when others =>
         current_state <= BOOT;
